@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Helicopter game</title>
+
+
+    <!-- JQuery JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<link rel="preload" href="/images/back1.jpg" as="image">
+	<link rel="preload" href="/images/back2.jpg" as="image">
+	<link rel="preload" href="/images/back3.png" as="image">
+	<link rel="preload" href="/images/back4.png" as="image">
+	<link rel="preload" href="/images/back5.png" as="image">
+	<link rel="preload" href="/images/back6.jpg" as="image">
+	<link rel="preload" href="/images/back7.jpg" as="image">
+
+    <link rel="stylesheet" type= "text/css" href="/css/style1.css">
+
+</head>
+
+<body>
+
+<div id="maincontent">
+  <div id="canvaswrap">
+    <div id="scoreboard">
+      <div>Score <span id="points">0</span></div>
+      <div>Level <span id="crashes">Begginer</span></div>
+    </div>
+    <div id="user_action">
+      <h1 id="message">Start New Game</h1>
+      <!-- <h1 >Press any key to continue</h1>-->
+      <button id="btn" onclick = "beginGame()">Play Game</button>
+      <button id="btn" onclick = "showStatic()">View</button>
+      <h4 id = "top"></h4>
+
+    </div>
+    <canvas id="myFishingGame" width="1360" height="610"></canvas>
+  </div>
+</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!--  <script src="js/addScore.js" charset="utf-8"></script>-->
+  <script src="js/main.js" charset="utf-8"></script>
+
+
+</body>
+
+</html>

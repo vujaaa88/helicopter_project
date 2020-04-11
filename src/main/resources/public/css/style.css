@@ -1,0 +1,88 @@
+html{
+     background-image: url(/images/log.jpg);
+    color: white;
+    font-family: 'Lora';
+}
+body {
+     background-image: url(/images/log.jpg);
+    color: white;
+    font-family: 'Lora';
+}
+#password{
+    color: black;
+}
+#username{
+    color: black;
+}
+#title {
+  background-color: #357376;
+  margin-bottom: 5px;
+}
+.bodi{
+    margin-top: 45px;
+}
+
+p {
+    text-align: center;
+    color: white;
+}
+.title {
+    margin-top: 10px;
+    margin-bottom: 30%;
+    text-align: right;
+    color: honeydew;
+    font-family: 'Monoton';
+}
+.form-heading {
+    text-align: center;
+    color: white;
+}
+.registerForm {
+    width: 60%;
+    margin:0 0 0 20%;
+    font-size: 18px;
+}
+.regtitle{
+    text-align: center;
+    color: white;
+}
+.user {
+    text-align: left;
+    font-family: 'Satisfy';
+    color: white;
+}
+.user-name {
+    text-align: right;
+    font-family: 'Satisfy';
+    color: white;
+    margin-right: 40px;
+    font-size: 20px;
+}
+.log {
+    text-align: right;
+    font-family: 'Lora';
+    color: white;
+    margin-right: 40px;
+    font-size: 14px;
+}
+.userform {
+    text-align: center;
+    font-family: 'Satisfy';
+}
+.form-signin {
+    text-align: center;
+    font-family: 'Satisfy';
+}
+label {
+    color: white;
+}
+.loginback {
+    margin-top: 20px;
+}
+.email {
+    margin-left: 32px;
+}
+.password {
+  margin-left: 4px;
+}
+

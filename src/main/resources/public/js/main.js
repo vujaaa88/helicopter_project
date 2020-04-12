@@ -4,24 +4,26 @@
     let wallsCount = 2;
     let points = 0;
     let crashes = 1;
-	let myMusic = new Audio('/music/crash.mp3');
-	let mySound = new Audio('/music/DaysBehindTheWheel.mp3');
+	let myMusic = new Audio('//music/crash.mp3');
+	let mySound = new Audio('//music/DaysBehindTheWheel.mp3');
 	let userName;
 	let bestResult;
 	let numberOfPlaying;
 	let highestLevel;
 	let wins;
 
+	var myCanvas = document.getElementById("myFishingGame");
+	
 	const minHeight = 0;
-	const maxHeight = 310;
+	const maxHeight = myCanvas.height/2;
+	const gap = myCanvas.height/2;
 	let height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
-	const gap = 300;
 
     var myGameArea = {
         canvas: document.getElementById("myFishingGame"),
         start: function() {
             this.context = this.canvas.getContext("2d");
-            this.interval = setInterval(updateGameArea, 25)
+            this.interval = setInterval(updateGameArea, 40)
         },
         clear: function() {
             this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -56,10 +58,10 @@
 				points=0;
 				document.getElementById("points").innerHTML = points;
 				myGameArea.start();
-		myHero = new Component(140,100, "/images/helicopter.png", 120, 120, 2, "image");
+		myHero = new Component(30,20, "/images/helicopter.png", 20, 40, 1, "image");
 		document.getElementById("user_action").style.display="none";
-			walls.push(new Rect(100,height,"red",1360,0,5));
-			walls.push(new Rect(100,610-height-gap,"red",1360,height+gap,5));
+			walls.push(new Rect(30,height,"red",myCanvas.width,0,1));
+			walls.push(new Rect(30,myCanvas.height-height-gap,"red",myCanvas.width,height+gap,1));
     }
 
     function updateGameArea() {
@@ -84,15 +86,15 @@
 
 			if (walls[0].x < -100 ) {
 				updatingWalls();
-				walls[0].speed += 2;
-				walls[1].speed += 2;
+				walls[0].speed += 1;
+				walls[1].speed += 1;
 				points += 5;
 			}
 
-			if(isCollide(myHero,walls[0]) || isCollide(myHero,walls[1]) || myHero.y <= 0 || myHero.y >= 520 ){
+			if(isCollide(myHero,walls[0]) || isCollide(myHero,walls[1]) || myHero.y <= 0 || myHero.y >= myCanvas.height-20 ){
 				updatingWalls();
-				walls[0].speed = 5;
-				walls[1].speed = 5;
+				walls[0].speed = 1;
+				walls[1].speed = 1;
 				crashes--;
 				myMusic.play();
 				mySound.pause();
@@ -116,22 +118,26 @@
 			if(points > 19 && points < 35){
 					level = "Good";
 					document.getElementById("myFishingGame").style.backgroundImage = 'url(/images/back3.png)';
-					
 			} else if (points > 34 && points < 55){
 					level = "Very Good";
 					document.getElementById("myFishingGame").style.backgroundImage = 'url(/images/back5.png)';
+					
 			} else if (points > 54 && points < 75){
 					level = "Awesome";
 					document.getElementById("myFishingGame").style.backgroundImage = 'url(/images/back2.jpg)';
+					
 			} else if (points > 74 && points < 95){
 					level = "Advanced";
 					document.getElementById("myFishingGame").style.backgroundImage = 'url(/images/back1.jpg)';
+					
 			} else if (points > 94 && points < 115){
 					level = "Master"
 					document.getElementById("myFishingGame").style.backgroundImage = 'url(/images/back6.jpg)';
+					
 			} else if (points > 114) {
 					level = "Pro";
 					document.getElementById("myFishingGame").style.backgroundImage = 'url(/images/back7.jpg)';
+					
 			}
 
 		document.getElementById("crashes").innerHTML = level;
@@ -140,8 +146,9 @@
 			let randomColor = getRandomColor();
 			height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
 			
-				walls.push(new Rect(100,height,randomColor,1360,0,speed));
-				walls.push(new Rect(100,620-height-gap,randomColor,1360,height+gap,speed));
+				walls.push(new Rect(30,height,randomColor,myCanvas.width,0,speed));
+				walls.push(new Rect(30,myCanvas.height-height-gap,randomColor,myCanvas.width,height+gap,speed));
+			
 	}
 
 	function isCollide(a, b) {
@@ -217,16 +224,16 @@
     window.onkeydown = function(e) {
         let keyCode = e.which;
         if (keyCode === 38){
-            myHero.y = myHero.y - 40;
+            myHero.y = myHero.y - 20;
 		}
         else if (keyCode === 40){
-            myHero.y = myHero.y + 10;
+            myHero.y = myHero.y + 5;
 		}
     }
 
     function win(){
-    	walls[0].speed = 5;
-		walls[1].speed = 5;
+    	walls[0].speed = 2;
+		walls[1].speed = 2;
 		
 		
 		const addWin = async (win) => {
